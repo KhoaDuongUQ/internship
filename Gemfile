@@ -4,9 +4,12 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+# Ruby version
+ruby '2.5.0'
 # Devise
 gem 'devise'
+# Rails_12factor
+gem 'rails_12factor', group: :production
 # Bootstrap 4
 gem 'bootstrap', '~> 4.0.0.beta3'
 # jQuery

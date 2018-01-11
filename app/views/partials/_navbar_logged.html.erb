@@ -1,0 +1,9 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "/assets/stylesheets/partials/navbar_logged" %>
+<% end %>
+
+Logged in as
+<strong><%= user.email %></strong>.
+<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+|
+<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
