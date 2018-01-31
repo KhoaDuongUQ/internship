@@ -1,6 +1,6 @@
-<h1>Hello, Rails!</h1>
-<% if user_signed_in? %>
-  <%= render 'partials/navbar_logged', locals: {user_email: current_user.email} %>
-<% else %>
-  <%= render 'partials/navbar_unlogged' %>
-<% end %>
+<div class="container">
+  <%= render partial: 'partials/sub_header'%>
+  <div class="list_products">
+    <%= render partial: 'partials/list_products', collection: @products, as: :product%>
+  </div>
+</div>

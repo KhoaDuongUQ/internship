@@ -13,8 +13,8 @@
   </head>
 
   <body class='<%= controller.controller_name %>'>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render partial: 'partials/header'%>
     <%= yield %>
+
   </body>
 </html>

@@ -1,0 +1,14 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'sub_header' %>
+<% end %>
+<div class="sub_header container-fluid">
+  <div class="row">
+    <div class="col-10">
+      <h4 id="newest_products">Newest Products</h4>
+    </div>
+    <div class="col-2">
+      <%= link_to "New Product", new_product_path, class: 'btn btn-primary', id: "new_button" %>
+    </div>
+  </div>
+  <hr>
+</div>

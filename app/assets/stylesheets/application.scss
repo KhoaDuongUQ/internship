@@ -1,1 +1,48 @@
 @import "bootstrap";
+@import "form";
+@import "_colors";
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table tr td {
+  padding: 5px;
+  vertical-align: top;
+}
+
+.list_image {
+  width: 60px;
+  height: 70px;
+}
+
+.list_description {
+  width: 60%;
+
+  dl {
+    margin: 0;
+  }
+
+  a {
+    font-weight: bold;
+    font-size: larger;
+    color: $hopbush;
+  }
+
+  dd {
+    margin: 0;
+  }
+}
+
+.list_line_even {
+  background: $dawn-pink;
+}
+
+.list_line_odd {
+  background: $nebula;
+}

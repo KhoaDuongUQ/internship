@@ -1,0 +1,53 @@
+<div class="container-fluid col-md-8" id="content">
+  <div id="product-header">
+    <h1 id="title">
+      <%= @product.title %>
+    </h1>
+    <p>
+      Posted by
+      <%= link_to "#{@product.user.name}", product_path %><br/>
+    </p>
+  </div>
+
+  <hr>
+
+  <div id="product_description">
+    <%= @product.description %>
+  </div>
+
+  <hr>
+
+  <div id="product_images">
+    <% @product.images.each do |image| %>
+      <%= image_tag(image.url, class: 'list_image') %>
+    <% end %>
+  </div>
+
+  <hr>
+
+  <div id="list_bids"></div>
+  <h5>Top Bids</h5>
+
+  <hr>
+
+  <div id="product_menu">
+    <% if @allow_edit_destroy %>
+      <%= link_to "Edit", edit_product_path(@product), class: 'btn btn-outline-primary' %>
+      <%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
+    <% end %>
+
+    <% if @allow_bid %>
+      <h5>Create New Bid</h5>
+      <%= form_with(model: @bid, local: true) do |form| %>
+      <div class="field">
+        <%= form.text_field :price, id: :bid_price %>
+        <div class="actions">
+          <%= form.submit "Bid" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
+</div>

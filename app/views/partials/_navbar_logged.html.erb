@@ -2,8 +2,22 @@
   <%= stylesheet_link_tag "/assets/stylesheets/partials/navbar_logged" %>
 <% end %>
 
-Logged in as
-<strong><%= user.email %></strong>.
-<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
-|
-<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between ">
+  <%= link_to 'Marketplace', root_path, :class => 'navbar-brand h1' %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="dropdown">
+    <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown">
+      <%= current_user.name %>
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+      <%= link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item' %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+      <%= link_to "Products of " + current_user.name, user_show_products_path(current_user.id), class: 'dropdown-item' %>
+    </ul>
+  </div>
+
+</nav>

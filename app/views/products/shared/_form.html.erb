@@ -1,0 +1,29 @@
+<%= stylesheet_link_tag "products" %>
+<%= form_with(model: product, local: true) do |form| %>
+<%= render 'products/shared/errors', product: product %>
+
+<div class="field">
+  <%= form.label :title, "Title <span class='required'>*</span>".html_safe %>
+  <%= form.text_field :title, id: :product_title %>
+</div>
+
+<div class="field">
+  <%= form.label :description, "Description <span class='required'>*</span>".html_safe %>
+  <%= form.text_area :description, id: :product_description, rows: 10, cols: 60 %>
+</div>
+
+<div class="field">
+  <%= form.label :images %>
+  <%= form.file_field :images, id: :product_images, multiple: true %>
+  <%= form.hidden_field :images_cache %>
+</div>
+
+<div class="field">
+  <%= form.label :price, "Price <span class='required'>*</span>".html_safe %>
+  <%= form.text_field :price, id: :product_price %>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>

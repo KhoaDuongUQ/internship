@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+  <%= render partial: 'partials/navbar_logged'%>
+<% else %>
+  <%= render partial: 'partials/navbar_unlogged' %>
+<% end %>
