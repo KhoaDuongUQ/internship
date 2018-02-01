@@ -8,13 +8,19 @@
 
 User.destroy_all
 khoa = User.create!(
-  name: 'khoa',
+  name: 'Khoa',
   email: 'duonganhkhoa95@gmail.com',
   password: 'KhoaUQ95'
   )
 
 pieter = User.create!(
-    name: 'pieter',
-    email: 'pieter_ziggu@gmail.com',
-    password: 'KhoaUQ95'
-    )
+  name: 'Pieter',
+  email: 'pieter_ziggu@gmail.com',
+  password: 'KhoaUQ95'
+  )
+
+tien = User.create!(
+  name: 'Tien',
+  email: 'tvtien@gmail.com',
+  password: 'KhoaUQ95'
+  )

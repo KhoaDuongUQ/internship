@@ -1,4 +1,4 @@
-<div class="container-fluid col-md-8" id="content">
+<div class="container col-md-8" id="content">
   <div id="product-header">
     <h1 id="title">
       <%= @product.title %>
@@ -25,8 +25,9 @@
 
   <hr>
 
-  <div id="list_bids"></div>
-  <h5>Top Bids</h5>
+  <div id="top_bids">
+    <%= render 'products/shared/top_bids'%>
+  </div>
 
   <hr>
 
@@ -38,11 +39,11 @@
 
     <% if @allow_bid %>
       <h5>Create New Bid</h5>
-      <%= form_with(model: @bid, local: true) do |form| %>
+      <%= form_for @bid, url: product_bids_path(@product) do |f| %>
       <div class="field">
-        <%= form.text_field :price, id: :bid_price %>
+        <%= f.text_field :price, id: :bid_price %>
         <div class="actions">
-          <%= form.submit "Bid" %>
+          <%= f.submit "Bid" %>
         </div>
       </div>
     <% end %>

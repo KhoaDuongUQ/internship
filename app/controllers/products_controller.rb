@@ -12,6 +12,8 @@ class ProductsController < ApplicationController
   def show
     @allow_bid = (current_user != @product.user)
     @allow_edit_destroy = (current_user == @product.user)
+    @top_bids = @product.bids.order(price: :asc).first(10)
+    @bid = Bid.new
   end
 
   # GET /products/new
@@ -33,7 +35,8 @@ class ProductsController < ApplicationController
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        # format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -70,6 +73,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:user_id, :title, :description, {images: []}, :images_cache, :price)
+      params.require(:product).permit(:title, :description, {images: []}, :images_cache, :price)
     end
 end
