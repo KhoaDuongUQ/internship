@@ -19,9 +19,9 @@ gem 'rubocop', require: false
 # Devise
 gem 'devise'
 # Rails_12factor
-gem 'rails_12factor', group: :productio
-# SimpleForm
-gem 'simple_form'
+gem 'rails_12factor', group: :production
+# Font Awesome
+gem 'font-awesome-sass', '~> 4.4.0'
 # Bootstrap 4
 gem 'bootstrap', '~> 4.0.0.beta3'
 # jQuery
@@ -37,7 +37,7 @@ gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # sprockets-rails
-gem 'sprockets-rails', '~> 2.3.3'
+gem 'sprockets-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

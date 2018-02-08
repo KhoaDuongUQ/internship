@@ -1,1 +1,1 @@
-console.log('<%= @product.errors %>');
+$("#errors_explanation").html("<%= escape_javascript(render 'products/shared/errors', product: @product) %>");

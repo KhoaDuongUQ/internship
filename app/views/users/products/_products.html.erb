@@ -1,0 +1,5 @@
+<h1>
+  Products of
+  <%= current_user.name %>
+</h1>
+<%= render partial: 'partials/list_products', collection: @products, as: :product%>

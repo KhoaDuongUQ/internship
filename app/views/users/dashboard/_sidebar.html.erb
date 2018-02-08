@@ -1,0 +1,17 @@
+<ul class="nav nav-pills flex-column">
+  <li class="nav-item">
+    <%= link_to icon('user', 'Profile'), users_profile_path, class: 'nav-link', id: 'profile', remote: true%>
+  </li>
+  <li class="nav-item">
+    <%= link_to icon('bell', 'Nortifications'), users_nortifications_path, class: 'nav-link', id: 'nortifications', remote: true%>
+  </li>
+  <li class="nav-item">
+    <%= link_to icon('user', 'Products'), users_products_path, class: 'nav-link', id: 'products', remote: true%>
+  </li>
+  <li class="nav-item">
+    <%= link_to icon('user', 'Bids'), users_bids_path, class: 'nav-link', id: 'bids', remote: true%>
+  </li>
+  <li class="nav-item">
+    <%= link_to icon('sign-out', 'Sign Out'), destroy_user_session_path, method: :delete, class: 'nav-link'%>
+  </li>
+</ul>

@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: %i[show edit update destroy]
+  before_action :set_bid, only: %i[show]
 
   # GET /products
   # GET /products.json
@@ -13,7 +14,6 @@ class ProductsController < ApplicationController
     @allow_bid = (current_user != @product.user)
     @allow_edit_destroy = (current_user == @product.user)
     @top_bids = @product.bids.order(price: :asc).first(10)
-    @bid = Bid.new
   end
 
   # GET /products/new
@@ -22,8 +22,7 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /products
   # POST /products.json
@@ -35,7 +34,7 @@ class ProductsController < ApplicationController
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
-        # format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
         format.js
       end
     end
@@ -66,13 +65,18 @@ class ProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:title, :description, {images: []}, :images_cache, :price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def set_bid
+    @bid = Bid.find_or_initialize_by(user_id: current_user.id, product_id: @product.id)
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_params
+    params.require(:product).permit(:title, :description, { images: [] }, :images_cache, :price, :errors)
+  end
 end

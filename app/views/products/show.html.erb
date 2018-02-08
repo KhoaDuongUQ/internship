@@ -25,6 +25,13 @@
 
   <hr>
 
+  <div id="product_start_price">
+    <h5>Start price:</h5>
+    <%= @product.price %>
+  </div>
+
+  <hr>
+
   <div id="top_bids">
     <%= render 'products/shared/top_bids'%>
   </div>
@@ -38,11 +45,14 @@
     <% end %>
 
     <% if @allow_bid %>
-      <h5>Create New Bid</h5>
-      <%= form_for @bid, url: product_bids_path(@product) do |f| %>
+      <h5>Your current bid:</h5>
+      <%= form_for [@product, @bid] do |f| %>
       <div class="field">
         <%= f.text_field :price, id: :bid_price %>
         <div class="actions">
+          <% if @bid.persisted? %>
+            <%= link_to "Remove", bid_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning' %>
+          <% end %>
           <%= f.submit "Bid" %>
         </div>
       </div>

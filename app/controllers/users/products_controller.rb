@@ -1,10 +1,8 @@
 class Users::ProductsController < ApplicationController
   def index
-    if user_signed_in?
-      @products = current_user.products
+    @products = current_user.products if user_signed_in?
+    respond_to do |format|
+      format.js
     end
-  end
-  def show
-    @product = current_user.products.last
   end
 end

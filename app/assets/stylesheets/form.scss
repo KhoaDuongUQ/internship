@@ -35,3 +35,23 @@ input[type='file'],
   border: none;
   color: #fff;
 }
+
+textarea {
+  width: 100%;
+  margin: 5px;
+  padding: 6px 15px;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  resize: none;
+}
+
+input :focus {
+  -moz-box-shadow: 0 0 8px #88D5E9;
+  -webkit-box-shadow: 0 0 8px #88D5E9;
+  box-shadow: 0 0 8px #88D5E9;
+  border: 1px solid #88D5E9;
+}
+
+.required {
+  color: red;
+}

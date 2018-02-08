@@ -1,7 +1,8 @@
-<%= stylesheet_link_tag "products" %>
-<%= form_with(model: product) do |form| %>
-<%= render 'products/shared/errors', product: product %>
+<div id="errors_explanation">
+  <%= render 'products/shared/errors', product: @product %>
+</div>
 
+<%= form_with(model: product) do |form| %>
 <div class="field">
   <%= form.label :title, "Title <span class='required'>*</span>".html_safe %>
   <%= form.text_field :title, id: :product_title %>
